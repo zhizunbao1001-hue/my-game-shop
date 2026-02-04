@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameVault 遊戲商城 | 正版遊戲、周邊配件與禮品卡</title>
+    <meta name="description" content="GameVault 是您購買正版遊戲、遊戲周邊配件、禮品卡的最佳選擇。安全可靠，快速出貨。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5), 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+        }
+        .gradient-border {
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+            padding: 2px;
+            border-radius: 12px;
+        }
+        .gradient-border-inner {
+            background: #111827;
+            border-radius: 10px;
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white antialiased">
+
+    <!-- Navigation -->
+    <nav class="border-b border-gray-800 bg-gray-900/95 backdrop-blur-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-violet-500" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                        </svg>
+                        <span class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-pink-500 neon-glow">
+                            GameVault
+                        </span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#" class="px-4 py-2 rounded-lg text-sm font-medium text-white hover:bg-gray-800 transition">首頁</a>
+                    <a href="#games" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition">遊戲</a>
+                    <a href="#accessories" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition">周邊配件</a>
+                    <a href="#giftcards" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition">禮品卡</a>
+                    <a href="#contact" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition">聯絡我們</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-3">
+                    <button class="p-2 text-gray-400 hover:text-white transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </button>
+                    <button class="p-2 text-gray-400 hover:text-white transition relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-pink-500 text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                    </button>
+                    <a href="#" class="bg-gradient-to-r from-violet-600 to-pink-600 hover:from-violet-500 hover:to-pink-500 px-5 py-2 rounded-lg text-sm font-medium transition shadow-lg shadow-violet-500/25">
+                        登入
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="p-2 text-gray-400 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-20 sm:pt-32 sm:pb-28 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-violet-900/20 via-gray-900 to-pink-900/20"></div>
+        <div class="absolute top-20 left-10 w-72 h-72 bg-violet-600/20 rounded-full filter blur-3xl"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-pink-600/20 rounded-full filter blur-3xl"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-violet-900/50 border border-violet-700/50 text-violet-300 text-sm mb-6">
+                        <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                        春季特賣活動進行中
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6">
+                        <span class="text-white">探索無限</span><br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-pink-400 to-violet-400 neon-glow">遊戲世界</span>
+                    </h1>
+                    <p class="text-lg text-gray-400 mb-8 max-w-lg mx-auto lg:mx-0">
+                        GameVault 提供最新正版遊戲、優質周邊配件與各平台禮品卡。安全交易、快速出貨，是玩家的首選購物平台。
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#games" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-violet-600 to-pink-600 hover:from-violet-500 hover:to-pink-500 rounded-xl text-white font-semibold transition shadow-xl shadow-violet-500/30">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                            立即選購
+                        </a>
+                        <a href="#about" class="inline-flex items-center justify-center px-8 py-4 border border-gray-700 hover:border-violet-500 rounded-xl text-white font-semibold transition hover:bg-gray-800">
+                            了解更多
+                        </a>
+                    </div>
+                </div>
+                <div class="relative hidden lg:block">
+                    <div class="animate-float">
+                        <div class="gradient-border">
+                            <div class="gradient-border-inner p-8">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-gray-800 rounded-lg p-4 text-center">
+                                        <div class="text-3xl mb-2">🎮</div>
+                                        <div class="text-2xl font-bold text-white">500+</div>
+                                        <div class="text-sm text-gray-400">正版遊戲</div>
+                                    </div>
+                                    <div class="bg-gray-800 rounded-lg p-4 text-center">
+                                        <div class="text-3xl mb-2">🎧</div>
+                                        <div class="text-2xl font-bold text-white">200+</div>
+                                        <div class="text-sm text-gray-400">周邊配件</div>
+                                    </div>
+                                    <div class="bg-gray-800 rounded-lg p-4 text-center">
+                                        <div class="text-3xl mb-2">🎁</div>
+                                        <div class="text-2xl font-bold text-white">50+</div>
+                                        <div class="text-sm text-gray-400">禮品卡種類</div>
+                                    </div>
+                                    <div class="bg-gray-800 rounded-lg p-4 text-center">
+                                        <div class="text-3xl mb-2">⭐</div>
+                                        <div class="text-2xl font-bold text-white">10K+</div>
+                                        <div class="text-sm text-gray-400">滿意客戶</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-violet-900/50 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-white">100% 正版保證</h3>
+                        <p class="text-sm text-gray-400">官方授權正版商品</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-violet-900/50 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-white">快速出貨</h3>
+                        <p class="text-sm text-gray-400">數位商品即時發送</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-violet-900/50 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-white">安全付款</h3>
+                        <p class="text-sm text-gray-400">多元安全支付方式</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-violet-900/50 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-white">客服支援</h3>
+                        <p class="text-sm text-gray-400">專業客服即時協助</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-2">熱門遊戲</h2>
+                    <p class="text-gray-400">精選最受歡迎的正版遊戲</p>
+                </div>
+                <a href="#" class="hidden sm:inline-flex items-center text-violet-400 hover:text-violet-300 font-medium transition">
+                    查看全部
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Game Card 1 -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 card-hover">
+                    <div class="relative h-52 bg-gradient-to-br from-violet-600 to-pink-600 flex items-center justify-center">
+                        <span class="text-6xl">🎮</span>
+                        <div class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full">-30%</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-violet-900/50 text-violet-300 text-xs px-2 py-1 rounded">RPG</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">PC</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">艾爾登法環</h3>
+                        <p class="text-gray-400 text-sm mb-4">FromSoftware 傳奇鉅作，探索廣闘開放世界</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-gray-500 line-through text-sm">NT$ 1,790</span>
+                                <span class="text-2xl font-bold text-white ml-2">NT$ 1,253</span>
+                            </div>
+                            <button class="bg-violet-600 hover:bg-violet-500 text-white px-4 py-2 rounded-lg font-medium transition">
+                                加入購物車
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 2 -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 card-hover">
+                    <div class="relative h-52 bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center">
+                        <span class="text-6xl">⚔️</span>
+                        <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">新上架</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-blue-900/50 text-blue-300 text-xs px-2 py-1 rounded">動作</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">PS5</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">薩爾達傳說：王國之淚</h3>
+                        <p class="text-gray-400 text-sm mb-4">任天堂年度大作，續寫海拉魯傳說</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-white">NT$ 1,890</span>
+                            <button class="bg-violet-600 hover:bg-violet-500 text-white px-4 py-2 rounded-lg font-medium transition">
+                                加入購物車
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 3 -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 card-hover">
+                    <div class="relative h-52 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                        <span class="text-6xl">🏎️</span>
+                        <div class="absolute top-4 left-4 bg-yellow-500 text-gray-900 text-xs font-bold px-3 py-1 rounded-full">熱賣</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-orange-900/50 text-orange-300 text-xs px-2 py-1 rounded">競速</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">跨平台</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">極限競速：地平線 5</h3>
+                        <p class="text-gray-400 text-sm mb-4">暢遊墨西哥，體驗極致競速樂趣</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-white">NT$ 1,490</span>
+                            <button class="bg-violet-600 hover:bg-violet-500 text-white px-4 py-2 rounded-lg font-medium transition">
+                                加入購物車
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessories Section -->
+    <section id="accessories" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-2">周邊配件</h2>
+                    <p class="text-gray-400">提升您的遊戲體驗</p>
+                </div>
+                <a href="#" class="hidden sm:inline-flex items-center text-violet-400 hover:text-violet-300 font-medium transition">
+                    查看全部
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Accessory Card 1 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-700 card-hover p-6">
+                    <div class="h-40 bg-gray-800 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-5xl">🎧</span>
+                    </div>
+                    <h3 class="font-bold text-white mb-1">電競耳機</h3>
+                    <p class="text-gray-400 text-sm mb-3">7.1 環繞音效</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xl font-bold text-white">NT$ 2,490</span>
+                        <button class="text-violet-400 hover:text-violet-300 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Accessory Card 2 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-700 card-hover p-6">
+                    <div class="h-40 bg-gray-800 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-5xl">🖱️</span>
+                    </div>
+                    <h3 class="font-bold text-white mb-1">電競滑鼠</h3>
+                    <p class="text-gray-400 text-sm mb-3">16000 DPI 精準感應</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xl font-bold text-white">NT$ 1,890</span>
+                        <button class="text-violet-400 hover:text-violet-300 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Accessory Card 3 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-700 card-hover p-6">
+                    <div class="h-40 bg-gray-800 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-5xl">⌨️</span>
+                    </div>
+                    <h3 class="font-bold text-white mb-1">機械鍵盤</h3>
+                    <p class="text-gray-400 text-sm mb-3">RGB 背光 青軸</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xl font-bold text-white">NT$ 3,290</span>
+                        <button class="text-violet-400 hover:text-violet-300 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Accessory Card 4 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-700 card-hover p-6">
+                    <div class="h-40 bg-gray-800 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-5xl">🎮</span>
+                    </div>
+                    <h3 class="font-bold text-white mb-1">無線手把</h3>
+                    <p class="text-gray-400 text-sm mb-3">支援多平台</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xl font-bold text-white">NT$ 1,690</span>
+                        <button class="text-violet-400 hover:text-violet-300 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gift Cards Section -->
+    <section id="giftcards" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-2">禮品卡與儲值</h2>
+                <p class="text-gray-400">各大平台禮品卡，即買即用</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                <!-- Platform Cards -->
+                <div class="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 card-hover cursor-pointer">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center">
+                        <span class="text-2xl font-bold text-white">X</span>
+                    </div>
+                    <h3 class="font-semibold text-white text-sm">Xbox</h3>
+                    <p class="text-violet-400 text-xs mt-1">NT$ 500 起</p>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 card-hover cursor-pointer">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center">
+                        <span class="text-2xl font-bold text-white">P</span>
+                    </div>
+                    <h3 class="font-semibold text-white text-sm">PlayStation</h3>
+                    <p class="text-violet-400 text-xs mt-1">NT$ 500 起</p>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 card-hover cursor-pointer">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gray-600 to-gray-800 rounded-2xl flex items-center justify-center">
+                        <span class="text-2xl font-bold text-white">S</span>
+                    </div>
+                    <h3 class="font-semibold text-white text-sm">Steam</h3>
+                    <p class="text-violet-400 text-xs mt-1">NT$ 150 起</p>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 card-hover cursor-pointer">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-red-400 to-red-600 rounded-2xl flex items-center justify-center">
+                        <span class="text-2xl font-bold text-white">N</span>
+                    </div>
+                    <h3 class="font-semibold text-white text-sm">Nintendo</h3>
+                    <p class="text-violet-400 text-xs mt-1">NT$ 500 起</p>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 card-hover cursor-pointer">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-violet-400 to-violet-600 rounded-2xl flex items-center justify-center">
+                        <span class="text-2xl font-bold text-white">E</span>
+                    </div>
+                    <h3 class="font-semibold text-white text-sm">Epic Games</h3>
+                    <p class="text-violet-400 text-xs mt-1">NT$ 300 起</p>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 card-hover cursor-pointer">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center">
+                        <span class="text-2xl font-bold text-white">G</span>
+                    </div>
+                    <h3 class="font-semibold text-white text-sm">Google Play</h3>
+                    <p class="text-violet-400 text-xs mt-1">NT$ 150 起</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-20 bg-gradient-to-r from-violet-900/50 to-pink-900/50">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">訂閱電子報</h2>
+            <p class="text-gray-300 mb-8">第一時間獲得最新遊戲資訊與獨家優惠</p>
+            <form class="flex flex-col sm:flex-row gap-4 justify-center">
+                <input
+                    type="email"
+                    placeholder="輸入您的電子郵件"
+                    class="flex-1 max-w-md px-6 py-4 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-violet-500 transition"
+                >
+                <button type="submit" class="px-8 py-4 bg-gradient-to-r from-violet-600 to-pink-600 hover:from-violet-500 hover:to-pink-500 rounded-xl text-white font-semibold transition shadow-lg">
+                    立即訂閱
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 border-t border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-violet-500" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                        </svg>
+                        <span class="text-xl font-bold text-white">GameVault</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        GameVault 致力於提供最優質的正版遊戲與周邊商品，讓每位玩家都能享受最佳的遊戲體驗。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-violet-400 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-violet-400 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-violet-400 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-violet-400 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-4">商品分類</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-violet-400 transition">PC 遊戲</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-violet-400 transition">PlayStation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-violet-400 transition">Xbox</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-violet-400 transition">Nintendo Switch</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-violet-400 transition">周邊配件</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-4">客戶服務</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-violet-400 transition">常見問題</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-violet-400 transition">配送說明</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-violet-400 transition">退換貨政策</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-violet-400 transition">聯絡客服</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-violet-400 transition">合作洽詢</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-4">聯絡資訊</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center text-gray-400">
+                            <svg class="w-4 h-4 mr-2 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            support@gamevault.tw
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <svg class="w-4 h-4 mr-2 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            (02) 1234-5678
+                        </li>
+                        <li class="flex items-start text-gray-400">
+                            <svg class="w-4 h-4 mr-2 mt-1 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            台北市信義區信義路五段7號
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-500 text-sm">
+                        &copy; 2024 GameVault. All rights reserved. 本站販售之商品均為官方授權正版商品。
+                    </p>
+                    <div class="flex items-center space-x-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-violet-400 transition">隱私權政策</a>
+                        <a href="#" class="text-gray-400 hover:text-violet-400 transition">使用條款</a>
+                        <a href="#" class="text-gray-400 hover:text-violet-400 transition">Cookie 設定</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
